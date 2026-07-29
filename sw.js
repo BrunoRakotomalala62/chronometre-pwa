@@ -1,11 +1,13 @@
 // Service Worker - Chronomètre PWA
-const CACHE_NAME = 'chronometre-v2';
+const CACHE_NAME = 'chronometre-v3';
 const ASSETS = [
     '/',
     '/index.html',
     '/style.css',
     '/app.js',
-    '/manifest.json'
+    '/manifest.json',
+    '/icon-192.png',
+    '/icon-512.png'
 ];
 
 // Installation : mise en cache des assets
