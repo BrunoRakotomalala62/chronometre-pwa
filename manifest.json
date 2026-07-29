@@ -1,24 +1,43 @@
 {
     "name": "Chronomètre Pro",
     "short_name": "Chronomètre",
-    "description": "Chronomètre hors-ligne avec date et heure",
-    "start_url": "/",
-    "scope": "/",
+    "description": "Chronomètre hors-ligne avec date et heure - mesurez vos temps avec précision",
+    "start_url": "/chronometre-pwa/",
+    "scope": "/chronometre-pwa/",
     "display": "standalone",
+    "display_override": ["standalone", "minimal-ui"],
     "orientation": "portrait",
     "background_color": "#0f0f1a",
     "theme_color": "#1a1a2e",
     "lang": "fr",
+    "dir": "ltr",
     "categories": ["utilities", "productivity"],
+    "iarc_rating_id": "e58c174a-81d2-5c3c-32cc-34b8de4a52ee",
+    "screenshots": [],
+    "shortcuts": [
+        {
+            "name": "Chronomètre",
+            "short_name": "Chrono",
+            "description": "Ouvrir le chronomètre",
+            "url": "/chronometre-pwa/",
+            "icons": [
+                {
+                    "src": "/chronometre-pwa/icon-192.png",
+                    "sizes": "192x192",
+                    "type": "image/png"
+                }
+            ]
+        }
+    ],
     "icons": [
         {
-            "src": "/icon-192.png",
+            "src": "/chronometre-pwa/icon-192.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "any"
         },
         {
-            "src": "/icon-512.png",
+            "src": "/chronometre-pwa/icon-512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "any maskable"
