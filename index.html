@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Chronomètre">
+    <title>Chronomètre</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⏱️</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête Date & Heure -->
+        <div class="datetime-section">
+            <div class="date-card">
+                <div class="date-day" id="dateDay">---</div>
+                <div class="date-full" id="dateFull">---</div>
+            </div>
+            <div class="time-card">
+                <div class="time-display" id="timeDisplay">--:--:--</div>
+                <div class="time-period" id="timePeriod"></div>
+            </div>
+        </div>
+
+        <!-- Chronomètre -->
+        <div class="chrono-section">
+            <div class="chrono-display" id="chronoDisplay">00:00:00.00</div>
+            <div class="chrono-laps" id="chronoLaps"></div>
+        </div>
+
+        <!-- Boutons -->
+        <div class="buttons-section">
+            <button class="btn btn-start" id="btnStart" title="Démarrer">
+                <svg viewBox="0 0 24 24" width="28" height="28"><polygon points="5,3 19,12 5,21" fill="currentColor"/></svg>
+                <span>Démarrer</span>
+            </button>
+            <button class="btn btn-lap" id="btnLap" disabled title="Tour">
+                <svg viewBox="0 0 24 24" width="28" height="28"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="currentColor"/></svg>
+                <span>Tour</span>
+            </button>
+            <button class="btn btn-reset" id="btnReset" title="Réinitialiser">
+                <svg viewBox="0 0 24 24" width="28" height="28"><path d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z" fill="currentColor"/></svg>
+                <span>Reset</span>
+            </button>
+        </div>
+
+        <!-- Liste des temps enregistrés -->
+        <div class="laps-section" id="lapsSection" style="display:none;">
+            <h3>Temps enregistrés</h3>
+            <ul class="laps-list" id="lapsList"></ul>
+        </div>
+    </div>
+
+    <!-- Indicateur hors-ligne -->
+    <div class="offline-badge" id="offlineBadge">📴 Hors-ligne</div>
+
+    <script src="app.js"></script>
+</body>
+</html>
