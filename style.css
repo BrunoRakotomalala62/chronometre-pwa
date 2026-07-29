@@ -1,0 +1,308 @@
+/* ===== Reset & Base ===== */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-primary: #0f0f1a;
+    --bg-card: #1a1a2e;
+    --bg-card-alt: #16213e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0b8;
+    --accent: #00d2ff;
+    --accent2: #7b2ff7;
+    --danger: #ff4757;
+    --success: #2ed573;
+    --warning: #ffa502;
+    --border: rgba(255,255,255,0.08);
+    --radius: 16px;
+    --shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+html, body {
+    height: 100%;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    min-height: 100dvh;
+}
+
+.container {
+    width: 100%;
+    max-width: 480px;
+    padding: 20px 16px 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ===== Date & Time Section ===== */
+.datetime-section {
+    display: flex;
+    gap: 12px;
+}
+
+.date-card, .time-card {
+    flex: 1;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 18px 16px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(10px);
+}
+
+.date-day {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--accent), var(--accent2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.date-full {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 6px;
+}
+
+.time-display {
+    font-size: 2.2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+    font-variant-numeric: tabular-nums;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+}
+
+.time-period {
+    font-size: 0.8rem;
+    color: var(--accent);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* ===== Chronometer Section ===== */
+.chrono-section {
+    background: var(--bg-card);
+    border: 2px solid var(--border);
+    border-radius: var(--radius);
+    padding: 32px 20px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+    overflow: hidden;
+}
+
+.chrono-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent2), var(--accent));
+    background-size: 200% 100%;
+    animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+.chrono-display {
+    font-size: 3.5rem;
+    font-weight: 200;
+    letter-spacing: 4px;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    font-variant-numeric: tabular-nums;
+    color: #fff;
+    text-shadow: 0 0 30px rgba(0,210,255,0.3);
+}
+
+.chrono-display.running {
+    color: var(--accent);
+    text-shadow: 0 0 40px rgba(0,210,255,0.5);
+}
+
+.chrono-laps {
+    margin-top: 12px;
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    min-height: 28px;
+}
+
+/* ===== Buttons ===== */
+.buttons-section {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 14px 22px;
+    border: none;
+    border-radius: var(--radius);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    color: #fff;
+    min-width: 90px;
+    letter-spacing: 0.5px;
+}
+
+.btn:active {
+    transform: scale(0.95);
+}
+
+.btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn-start {
+    background: linear-gradient(135deg, #00d2ff, #0098db);
+    box-shadow: 0 4px 20px rgba(0,210,255,0.25);
+}
+
+.btn-start.running {
+    background: linear-gradient(135deg, #ffa502, #ff6348);
+    box-shadow: 0 4px 20px rgba(255,165,2,0.25);
+}
+
+.btn-lap {
+    background: linear-gradient(135deg, #7b2ff7, #5b1fc4);
+    box-shadow: 0 4px 20px rgba(123,47,247,0.25);
+}
+
+.btn-reset {
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+}
+
+.btn-reset:hover {
+    background: rgba(255,255,255,0.14);
+}
+
+/* ===== Laps List ===== */
+.laps-section {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    box-shadow: var(--shadow);
+}
+
+.laps-section h3 {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 14px;
+}
+
+.laps-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-height: 280px;
+    overflow-y: auto;
+}
+
+.laps-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 14px;
+    background: var(--bg-card-alt);
+    border-radius: 10px;
+    font-family: 'SF Mono', 'Cascadia Code', 'Consolas', monospace;
+    font-size: 1rem;
+}
+
+.lap-number {
+    color: var(--text-secondary);
+    font-size: 0.8rem;
+}
+
+.lap-time {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.lap-total {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+/* ===== Offline Badge ===== */
+.offline-badge {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--danger);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    display: none;
+    z-index: 100;
+    animation: slideUp 0.3s ease;
+}
+
+.offline-badge.show {
+    display: block;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+    to { opacity: 1; transform: translateX(-50%) translateY(0); }
+}
+
+/* ===== Scrollbar ===== */
+.laps-list::-webkit-scrollbar {
+    width: 4px;
+}
+.laps-list::-webkit-scrollbar-track {
+    background: transparent;
+}
+.laps-list::-webkit-scrollbar-thumb {
+    background: var(--border);
+    border-radius: 4px;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 380px) {
+    .chrono-display { font-size: 2.6rem; }
+    .time-display { font-size: 1.8rem; }
+    .date-day { font-size: 1.6rem; }
+    .datetime-section { flex-direction: column; }
+}
