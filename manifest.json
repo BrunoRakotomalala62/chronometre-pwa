@@ -14,10 +14,17 @@
     "dir": "ltr",
     "categories": ["utilities", "productivity"],
     "handle_links": "preferred",
+    "prefer_related_applications": false,
     "launch_handler": {
         "client_mode": "focus-existing"
     },
-    "screenshots": [],
+    "screenshots": [
+        {
+            "src": "/icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ],
     "shortcuts": [
         {
             "name": "Chronomètre",
